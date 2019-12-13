@@ -1,0 +1,69 @@
+# CATACOMBS MAP 2128x832 (70 lux)
+#  size [608.000 238.000 1.000]
+#  size [1313 548]
+#  scale 2.150
+#  pose [-107.500 -8.500 0.000 0.000]
+#  pose [-19.500 4.500 0.000 0.000]
+
+
+# Map Precision and Simulation Period
+resolution 0.1
+interval_sim 50
+
+# Laser Properties
+define topurg ranger (
+  size [0.100 0.100 0.100]
+  color "red"
+  sensor ( range [0.000 5.000] fov 359  samples 360 )
+)
+
+# Robot Properties
+define erratic position (
+  size [0.500 0.500 0.200]
+  origin [-0.100 0.000 0.000 0.000]
+  drive "diff"
+  #topurg ( pose [-0.100 0.000 0.000 0.000] )
+)
+
+# Point Properties
+define block position (
+  size [0.500 0.500 0.000]
+  origin [0.000 0.000 1.000 0.000]
+)
+
+# Obstacle Properties
+define floorplan model (
+  color "black"
+)
+
+# Window Properties
+window (
+  size [1313 548]
+  rotate [1.000 0.000]
+  center [-63.000 -2.000 1.000]
+  scale 12.000
+  show_data 1
+  show_footprints 1
+)
+
+# Map and Obstacles
+floorplan (
+  name "catacombs_test"
+  bitmap "catacombs_test.png"
+  size [608.000 238.000 1.000]
+  pose [0.000 0.000 0.000 0.000]
+)
+
+# Robot
+erratic (
+  name "robot"
+  color "blue"
+  pose [-108.500 -9.500 0.000 0.000]
+)
+
+# Goal Point
+block (
+  name "goal"
+  color "green"
+  pose [-20.500 4.500 0.000 0.000]
+)

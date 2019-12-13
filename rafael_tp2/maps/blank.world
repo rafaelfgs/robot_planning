@@ -1,0 +1,58 @@
+resolution 0.01  # Map Precision
+interval_sim 50  # Simulation Period
+
+define topurg ranger            # Laser Properties
+(
+  size [0.100 0.100 0.100]      # Object Size
+  color "black"                 # Object Color
+  sensor ( range [0.000 5.000]  # Distance Range
+           fov 359              # Angle Range
+           samples 360 )        # Number of Beams
+)
+
+define erratic position                       # Robot Properties
+(
+  size [0.500 0.500 0.200]                    # Object Size
+  origin [-0.100 0.000 0.000 0.000]           # Control Point
+  drive "diff"                                # Robot Type
+  topurg ( pose [-0.100 0.000 0.000 0.000] )  # Laser Pose
+)
+
+define block position               # Point Properties
+(
+  size [0.300 0.300 0.000]          # Point Size
+  origin [0.000 0.000 1.000 0.000]  # Point Center
+)
+
+define floorplan model ( color "black" ) # Obstacle Properties
+
+window                  # Window Properties
+(
+  size [600 600]        # Window Size
+  rotate [0.000 0.000]  # Map Rotation
+  scale 25.000          # Zoom Scale
+  show_data 1           # View Data
+  show_footprints 1     # View Footprints
+)
+
+floorplan                         # Map and Obstacles
+(
+  name "blank"                    # Map Name
+  bitmap "blank.png"              # File Name
+  size [20.000 20.000 1.000]      # Map Size
+  pose [0.000 0.000 0.000 0.000]  # Map Pose
+)
+
+erratic                             # Robot
+(
+  name "robot"                      # Robot Name
+  color "blue"                      # Robot Color
+  pose [5.000 5.000 0.000 0.000]  # Robot Pose
+)
+
+block                             # Goal Point
+(
+  name "goal"                     # Goal Name
+  color "green"                   # Goal Color
+  pose [-5.000 0.000 0.000 0.000]  # Goal Pose
+)

@@ -1,0 +1,14 @@
+<launch>
+
+  <arg name="map"/>
+  <arg name="cx" default="0.0"/>
+  <arg name="cy" default="0.0"/>
+  <arg name="rx" default="8.0"/>
+  <arg name="ry" default="4.0"/>
+  <arg name="freq" default="0.01"/>
+
+  <node pkg="stage_ros" type="stageros" name="stageros_node" args="$(arg map)"/>
+
+  <node pkg="rafael_tp1" name="follow_curve_node" type="lemin.py" args="$(arg cx) $(arg cy) $(arg rx) $(arg ry) $(arg freq)" output="screen"/>
+
+</launch>

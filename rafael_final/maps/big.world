@@ -1,0 +1,62 @@
+# BIG MAP 200x150 (40 lux)
+# size_meters [16 12]
+# window [655 531]
+# scale 40
+
+# Laser Properties
+define topurg ranger (
+  size [0.100 0.100 0.100]
+  color "red"
+  sensor ( range [0.000 5.000] fov 359  samples 360 )
+)
+
+# Robot Properties
+define erratic position (
+  size [0.500 0.500 0.200]
+  origin [-0.100 0.000 0.000 0.000]
+  drive "diff"
+  #topurg ( pose [-0.100 0.000 0.000 0.000] )
+)
+
+# Point Properties
+define block position (
+  size [0.500 0.500 0.000]
+  origin [0.000 0.000 1.000 0.000]
+)
+
+# Obstacle Properties
+define floorplan model (
+  color "black"
+)
+
+# Window Properties
+window (
+  size [655 531]
+  rotate [0.000 0.000]
+  center [0.000 0.000 1.000]
+  scale 40.000
+  show_data 1
+  show_footprints 1
+)
+
+# Map and Obstacles
+floorplan (
+  name "big"
+  bitmap "big.png"
+  size [16.000 12.000 1.000]
+  pose [0.000 0.000 0.000 0.000]
+)
+
+# Robot
+erratic (
+  name "robot"
+  color "blue"
+  pose [-6.500 -4.500 0.000 0.000]
+)
+
+# Goal Point
+block (
+  name "goal"
+  color "green"
+  pose [4.500 -0.500 0.000 0.000]
+)

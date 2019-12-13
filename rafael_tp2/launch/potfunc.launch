@@ -1,0 +1,9 @@
+<launch>
+
+  <arg name="name" default="obst"/>
+
+  <node pkg="stage_ros" type="stageros" name="stageros_node" args="$(find rafael_tp2)/maps/$(arg name).world"/>
+
+  <node pkg="rafael_tp2" name="potfunc_node" type="potfunc.py" args="" output="screen"/>
+
+</launch>

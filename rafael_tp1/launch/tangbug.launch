@@ -1,0 +1,11 @@
+<launch>
+
+  <arg name="map"/>
+  <arg name="x_goal" default="0.0"/>
+  <arg name="y_goal" default="0.0"/>
+
+  <node pkg="stage_ros" type="stageros" name="stageros_node" args="$(arg map)"/>
+
+  <node pkg="rafael_tp1" name="tangbug_node" type="tangbug.py" args="$(arg x_goal) $(arg y_goal)" output="screen"/>
+
+</launch>

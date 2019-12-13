@@ -1,0 +1,17 @@
+<launch>
+
+  <!-- name         size       res0        res1      res2   -->
+  <!-- catacombs   608 238   2128  832   1064 416   532 208 -->
+  <!-- lavabeds    495 181   2244  820   1122 410   561 205 -->
+  <!-- oregon      312 236   2112 1596   1056 798   528 399 -->
+  <!-- big          16  12    200  150     80  60    16  12 -->
+
+  <arg name="name" default="catacombs"/>
+  <arg name="size" default="608 238"/>
+  <arg name="resolution" default="1064 416"/>
+
+  <node pkg="stage_ros" type="stageros" name="stageros_node" args="$(find rafael_final)/maps/$(arg name)_test.world"/>
+
+  <node pkg="rafael_final" name="star_node" type="star_6.py" args="$(find rafael_final)/maps/$(arg name).png $(arg size) $(arg resolution)" output="screen"/>
+
+</launch>

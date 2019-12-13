@@ -1,0 +1,11 @@
+<launch>
+
+  <arg name="name" default="obst"/>
+  <arg name="size" default="40 40"/>
+  <arg name="resolution" default="20 20"/>
+
+  <node pkg="stage_ros" type="stageros" name="stageros_node" args="$(find rafael_tp2)/maps/$(arg name).world"/>
+
+  <node pkg="rafael_tp2" name="star_node" type="star.py" args="$(find rafael_tp2)/maps/$(arg name).png $(arg size) $(arg resolution)" output="screen"/>
+
+</launch>

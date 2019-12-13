@@ -1,0 +1,67 @@
+# OREGON MAP 2212x1596 (90 lux)
+# size_meters [312 236]
+# window [904 716]
+# scale 2.875
+
+
+# Map Precision and Simulation Period
+resolution 0.1
+interval_sim 50
+
+# Laser Properties
+define topurg ranger (
+  size [0.100 0.100 0.100]
+  color "red"
+  sensor ( range [0.000 5.000] fov 359  samples 360 )
+)
+
+# Robot Properties
+define erratic position (
+  size [0.500 0.500 0.200]
+  origin [-0.100 0.000 0.000 0.000]
+  drive "diff"
+  #topurg ( pose [-0.100 0.000 0.000 0.000] )
+)
+
+# Point Properties
+define block position (
+  size [0.500 0.500 0.000]
+  origin [0.000 0.000 1.000 0.000]
+)
+
+# Obstacle Properties
+define floorplan model (
+  color "black"
+)
+
+# Window Properties
+window (
+  size [657 716]
+  rotate [0.000 0.000]
+  center [99.500 -29.500 1.000]
+  scale 8.500#2.875
+  show_data 1
+  show_footprints 1
+)
+
+# Map and Obstacles
+floorplan (
+  name "oregon"
+  bitmap "oregon.png"
+  size [312.000 236.000 1.000]
+  pose [0.000 0.000 0.000 0.000]
+)
+
+# Robot
+erratic (
+  name "robot"
+  color "blue"
+  pose [94.500 -59.500 0.000 0.000]
+)
+
+# Goal Point
+block (
+  name "goal"
+  color "green"
+  pose [110.500 5.500 0.000 0.000]
+)
